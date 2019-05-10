@@ -1,20 +1,16 @@
 <template>
   <div id="component-navbar">
     <nav class="navbar navbar-sub" role="navigation" aria-label="sub navigation">
-      <div id="menu" class="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <component-login-dropdown />
-          </div>
-          <div class="navbar-item">
-            <component-cart-dropdown />
-          </div>
-        </div>
+      <div class="navbar-item">
+        <component-login-dropdown />
+      </div>
+      <div class="navbar-item">
+        <component-cart-dropdown />
       </div>
     </nav>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <nuxt-link class="navbar-item" to="#">
+        <nuxt-link class="navbar-item" to="/">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </nuxt-link>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -63,13 +59,13 @@
       return {
         routes: [
           {
-            to: '#',
+            to: '/hair',
             title: 'Hair'
           }, {
-            to: '#',
+            to: '/nails',
             title: 'Nails'
           }, {
-            to: '#',
+            to: '/beauty',
             title: 'Beauty'
           }
         ]
@@ -89,5 +85,7 @@
   }
   .navbar-sub {
     z-index: 99;
+    display: flex;
+    justify-content: flex-end;
   }
 </style>
