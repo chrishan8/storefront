@@ -28,14 +28,12 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
   ],
 
   /*
@@ -45,6 +43,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    'nuxt-buefy',
+    'nuxt-fontawesome'
   ],
   /*
   ** Axios module configuration
@@ -52,13 +52,23 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-
+  buefy: {
+    defaultIconPack: 'fas',
+    defaultIconComponent: 'font-awesome-icon',
+    materialDesignIcons: false
+  },
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
+    ]
+  },
   /*
   ** Build configuration
   */
   build: {
-    transpile: [/^element-ui/],
-    
     /*
     ** You can extend webpack config here
     */
