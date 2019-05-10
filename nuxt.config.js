@@ -3,7 +3,6 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
   /*
   ** Headers of the page
   */
@@ -18,24 +17,21 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-
   /*
   ** Global CSS
   */
   css: [
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/swiper'
   ],
-
   /*
   ** Nuxt.js modules
   */

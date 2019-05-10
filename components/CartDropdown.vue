@@ -1,6 +1,8 @@
 <template>
   <b-collapse :open="false" aria-id="cart-dropdown">
-    <b-button aria-controls="cart-dropdown" icon-pack="fas" icon-left="shopping-bag" slot="trigger"></b-button>
+    <b-button aria-controls="cart-dropdown" icon-pack="fas" icon-left="shopping-bag" slot="trigger">
+      {{ totalQuantity }}
+    </b-button>
     <div class="notification">
       <h1 class="title">Your Bag</h1>
       <div class="line-item" v-for="i of lineItems" :key="i.id" :title="i.name">
@@ -19,7 +21,7 @@
         </div>
       </div>
       <div class="subtotal">
-        <p class="label">Subtotal<p>
+        <p>Subtotal<p>
         <p>${{ subtotal }}</p>
       </div>
       <b-button type="is-primary" class="btn-checkout">
@@ -84,6 +86,9 @@
       },
       total() {
         return this.subtotal;
+      },
+      totalQuantity() {
+        return this.lineItems.reduce((acc, curr) => (acc + curr.quantity), 0)
       }
     },
     methods: {
@@ -98,7 +103,7 @@
   .notification {
     position: absolute;
     width: 350px;
-    right: calc(100% - 50px);
+    right: calc(100% - 67px);
     padding: 0;
   }
   .title {
@@ -149,6 +154,7 @@
     justify-content: space-between;
     padding: 1em;
     border-top: 1px solid lightgrey;
+    font-weight: bold;
   }
   .btn-checkout {
     width: 100%;

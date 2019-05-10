@@ -54,7 +54,7 @@
   export default {
     data() {
       return {
-        activeTab: '',
+        activeTab: 0,
         loginForm: {
           email: '',
           password: '',
